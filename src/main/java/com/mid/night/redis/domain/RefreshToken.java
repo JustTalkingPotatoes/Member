@@ -18,15 +18,13 @@ public class RefreshToken {
 
     @Id
     private String id;
-    private String ip;
     private Collection<? extends GrantedAuthority> authorities;
     @Indexed
     private String refreshToken;
 
     @Builder
-    public RefreshToken(String id, String ip, Collection<? extends GrantedAuthority> authorities, String refreshToken) {
+    public RefreshToken(String id, Collection<? extends GrantedAuthority> authorities, String refreshToken) {
         this.id = id;
-        this.ip = ip;
         this.authorities = authorities;
         this.refreshToken = refreshToken;
     }
