@@ -1,6 +1,7 @@
 package com.mid.night.member.controller;
 
 import com.mid.night._core.utils.ApiUtils;
+import com.mid.night.member.dto.MemberRequestDTO;
 import com.mid.night.member.dto.MemberResponseDTO;
 import com.mid.night.member.service.MemberService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -25,7 +26,7 @@ public class MemberController {
         기본 회원 가입
      */
     @PostMapping("/signup")
-    public ResponseEntity<?> signUp(@Valid @RequestBody signUpDTO requestDTO) {
+    public ResponseEntity<?> signUp(@Valid @RequestBody MemberRequestDTO.signUpDTO requestDTO) {
 
         memberService.signUp(requestDTO);
 
@@ -36,7 +37,7 @@ public class MemberController {
         기본 로그인
      */
     @PostMapping("/login")
-    public ResponseEntity<?> login(HttpServletRequest httpServletRequest, @Valid @RequestBody loginDTO requestDTO) {
+    public ResponseEntity<?> login(HttpServletRequest httpServletRequest, @Valid @RequestBody MemberRequestDTO.loginDTO requestDTO) {
 
         MemberResponseDTO.authTokenDTO responseDTO = memberService.login(httpServletRequest, requestDTO);
 
